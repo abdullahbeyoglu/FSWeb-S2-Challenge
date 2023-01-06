@@ -75,18 +75,17 @@ function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
-
+console.log(cumleKur("Hello World!"));
 
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
-
+console.log(cumleKur("Hello", "World!"));
 
 
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
-var bircumle;
-
-/* kodlar buraya */
+var bircumle = cumleKur("Ben ", "iyi ", "bir ", "yazılımcı ", "olacağım!");
+console.log(bircumle);
 
 
 
@@ -104,9 +103,15 @@ var bircumle;
 	*/
 	
 
-function cumlelereDonustur(/* kodlar buraya */ ){
-	/* kodlar buraya */
+function cumlelereDonustur(data_cumleler, ayrac){
+
+	var arr1 = [];
+
+	data_cumleler.map ((i) => arr1.push(i.join(ayrac)));
+	return arr1;
+
 }
+console.log(cumlelereDonustur(cumleler, " "));
 
 
 
@@ -120,17 +125,22 @@ function cumlelereDonustur(/* kodlar buraya */ ){
 			6. Oluşturulan paragraf döndürülecek
 	*/
 	
-function paragrafOlustur(/* kodlar buraya */ ){
-	/* kodlar buraya */ 
+console.log("buradan sonra");
+function paragrafOlustur(cumleler1, cb_cumleKur, cb_Donustur){
+	
+	var arr2 = cb_cumleKur((cb_Donustur(cumleler1, " "))[1], (cb_Donustur(cumleler1, " "))[3],(cb_Donustur(cumleler1, " "))[5],(cb_Donustur(cumleler1, " "))[7],(cb_Donustur(cumleler1, " "))[9]);
+	return arr2;
 }
-
+console.log(paragrafOlustur(cumleler, cumleKur, cumlelereDonustur));
 
 /* 	GÖREV 3:
 		Yukarıda isimleri sebzeler ve meyveler olan 2 dizi bulunmaktadır. Bu dizileri kullanarak aşağıdaki görevleri tamamlayın.
 			3a. meyveler dizisinin ilk ve son elemanlarını diziden çıkartın. (.pop ve .shift metodlarını kullanın)
  */
 //3a çözümü
-/* kodlar buraya */
+
+console.log(meyveler.pop());
+console.log(meyveler.shift());
 
 
 
@@ -140,7 +150,10 @@ function paragrafOlustur(/* kodlar buraya */ ){
 /* 			3b.  Bir tavşan ve bir kirpi arkadaşlar sebzeler dizimizin peşine düştü. Tavşan => 🐇 , Kirpi=> 🦔 , Tavşanla kirpi sebzeleri ele geçirmek için bir plan kurdular. Tavşan diziye önden saldıracak, kirpi ise arkalarından dolaşacak. Varsayalım ki arkadaşların planları başarılı oldu. Tavşanı dizinin ilk elemanına 🐇, Kirpiyi dizinin son elemanına ekleyin 🦔 
 */
 //3b çözümü
-/* kodlar buraya */
+
+console.log(sebzeler.unshift("🐇"));
+console.log(sebzeler.push("🦔"));
+
 
 
 
@@ -154,9 +167,8 @@ function paragrafOlustur(/* kodlar buraya */ ){
 	//3c çözümü
 /* kodlar buraya */
 
-var manav;
-
-
+var manav = meyveler.concat(sebzeler);
+console.log(manav);
 
 
 
@@ -170,11 +182,35 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */){
-/* kodlar buraya */
+function emojileriDonustur(getemoji, cb_emoji){
+	
+	if (getemoji == ":)") {
+		return getemoji.replace(":)", "🙂")
+	}
+	else if (getemoji == ":)") {
+		return getemoji.replace(":(", "😔")
+	}
+	else if (getemoji == ":)") {
+		return getemoji.replace(":)", "🙂")
+	}
+	else if (getemoji == ":)") {
+		return getemoji.replace(":)", "🙂")
+	}
+	else if (getemoji == ":)") {
+		return getemoji.replace(":)", "🙂")
+	}
 
 }
+console.log(emojileriDonustur(":)"));
 
+// var emojiler = { 
+// 	":)": "🙂",
+// 	":(": "😔",
+// 	":d": "😁",
+// 	":p": "😛",
+// 	":o": "😱",
+// 	"<3": "❤️",
+// 	}
 
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
